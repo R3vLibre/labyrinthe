@@ -14,20 +14,15 @@ labyrinthe
   
   fichier prinicpal qui initilise la classe de l'interface et le moteur
 
-  labyrinthe.py - kevin
-  laby_interface_sorties.py - kevin
-  
 #---------------------------------------------------------------------------#
-  
-  laby_interface_entrees.py - florian
-  -receptionne les entrées
+  labyrinthe - kevin
+  laby_interface_sorties - kevin
 #---------------------------------------------------------------------------#
- 
+  laby_interface_entrees - florian
+  - Receptionne les entrées
+#---------------------------------------------------------------------------#
   moteur - florian
-  -le moteur demande les entrées qui ont été 
-  
-  
-  
+  - Le moteur demande les entrées qui ont été  
 #---------------------------------------------------------------------------#
 
 Git 
