@@ -1,34 +1,32 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#module obsolète
-
 
 import sys, os
 print sys.path[0]
 sys.path.append(os.path.join(sys.path[0], "../src/"))
 print sys.path
-import laby_interface_sorties as if_sorties
+import laby_interface as interface
 import pygame.locals as locals
 import time
 import pygame
 
 def main():
     print "Mise en marche du module de teste"
-    teste_if = if_sorties.Interface_Sorties()
+    teste_if_entree = interface.Interface_Entrees()
+    print "Appelle de l'interface d'entrée"
+    teste_if_sortie = interface.Interface_Sorties()
+    print "Appelle de l'interface de sortie"
     jeu_actif = True
 
     while (jeu_actif):
         time.sleep(0.100)
+        actions = teste_if_entree.reception_evenements()
 
-        # Gestion des évènments
+        for evt in actions:
+            if evt == "quitter":
+                jeu_actif = False
 
-        for evt in pygame.event.get():
-            if evt.type == locals.QUIT:
-                jeu_actif = False
-            elif evt.type == locals.KEYDOWN and evt.key == locals.K_ESCAPE:
-                jeu_actif = False
-            continue
     return
 
 if __name__ == '__main__':
