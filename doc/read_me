@@ -1,0 +1,38 @@
+Structure jeu labyrinthe
+
+labyrinthe 
+  doc
+    read_me.txt
+  src
+    labyrinthe.py
+    laby_interface.py
+    laby_moteur.py
+    laby_monde.py
+    laby_elements_jeu.py
+  tests 
+  assets
+  
+  fichier prinicpal qui initilise la classe de l'interface et le moteur
+
+  labyrinthe.py - kevin
+  laby_interface_sorties.py - kevin
+  
+#---------------------------------------------------------------------------#
+  
+  laby_interface_entrees.py - florian
+  -receptionne les entrées
+#---------------------------------------------------------------------------#
+ 
+  moteur - florian
+  -le moteur demande les entrées qui ont été 
+  
+  
+  
+#---------------------------------------------------------------------------#
+
+Git 
+
+git clone git@github.com:R3vLibre/labyrinthe.git
+git add . (tout)
+git commit -m "creation des fichiers du repository"
+git push -u origin master
