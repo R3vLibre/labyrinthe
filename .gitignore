@@ -1,2 +1,4 @@
 # ignorer les fichiers de sauvegarde
 *~
+#ignorer le dossier projet de pycharm
+.idea/
