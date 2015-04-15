@@ -2,30 +2,30 @@
 import pygame
 import pygame.locals as locals #raccourcis
 
-#pygame.init()
-#ecran = pygame.display.set_mode((800,600))
-#liste_actions = ["gauche","droite","haut","bas","quitter"]
+actions_deplacements = ["gauche","droite","haut","bas","quitter"]
 
 
 class Interface_Entrees(object):
   def __init__(self):
-    self.action = []
-
+    return
+  
   def reception_evenements(self):
-    self.action = []
+    actions = []
     for evt in pygame.event.get():
-      print evt
+      
       if evt.type == locals.QUIT:
-        self.action.append["quitter"]
-        
+        actions.append("quitter")
+
       elif evt.type == locals.KEYDOWN:
         if evt.key == locals.K_ESCAPE:
-          self.action.append["quitter"]
-        if evt.type == locals.K_UP:
-          self.action.append["haut"]
-        if evt.type == locals.K_DOWN:
-          self.action.append["bas"]
-        if evt.type == locals.K_LEFT:
-          self.action.append["gauche"]
-        if evt.type == locals.K_RIGHT:
-          self.action.append["droite"]
+          actions.append("quitter")
+        if evt.key == locals.K_UP:
+          actions.append("haut")
+        if evt.key == locals.K_DOWN:
+          actions.append("bas")
+        if evt.key == locals.K_LEFT:
+          actions.append("gauche")
+        if evt.key == locals.K_RIGHT:
+          actions.append("droite")
+        #print evt.key
+    return actions
