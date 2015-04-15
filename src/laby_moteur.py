@@ -6,9 +6,6 @@ import laby_interface as interface
 import laby_elements_jeu
 import laby_monde
 
-print laby_monde.map_initiale
-
-
 class Moteur(object):
   def __init__(self, entrees):
     self.jeu_actif = True

@@ -4,12 +4,12 @@ import sys
 import imp
 
 imp.load_source("REAL_ej","../../src/laby_elements_jeu.py")
-from REAL_ej import *
+import REAL_ej
 
 # Module de test
 #---------------------------------------------------------------------------------------------------------#
 
-class HerosTest(Heros):
+class HerosTest(REAL_ej.Heros):
   def __init__(self,curMap,posTabX,posTabY):
     super(HerosTest,self).__init__(curMap,posTabX,posTabY)
     return

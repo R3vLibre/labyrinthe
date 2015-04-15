@@ -10,7 +10,7 @@ sys.path.append(os.path.join(sys.path[0],"../../src/"))
 
 import pygame
 
-import laby_interface as interface
+import laby_interface as i_f
 import laby_moteur
 
 
@@ -23,7 +23,7 @@ def main():
 
   #----------START test avec stubs ----------#
 
-  entrees = interface.Interface_Entrees()
+  entrees = i_f.Interface_Entrees()
   moteur_jeu = laby_moteur.Moteur(entrees)
   moteur_jeu.commencer()
 
