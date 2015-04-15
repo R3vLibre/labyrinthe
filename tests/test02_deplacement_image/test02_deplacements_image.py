@@ -14,15 +14,22 @@ def main():
     print "test d'élément de jeu, appelle de l'interface de sortie :"
     teste_if_sortie = interface.Interface_Sorties()
     jeu_actif = True
-    print "je suis ici"
+    print "initialisation des objets de jeu"
+    joueur = Joueur("The Hero", (4, 3))
+    ennemi = Ennemi("Predator", (8, 9))
+    mur1 = Mur("Mur brique", (6,9 ))
+    mur2 = Mur("Palissade bois", (7, 9))
+    liste_elements = [joueur, ennemi, mur1, mur2]
+    teste_if_sortie.preparer_affichage(liste_elements)
+    teste_if_sortie.actualiser_affichage()
 
     while (jeu_actif):
         time.sleep(0.100)
         actions = teste_if_entree.reception_evenements()
-        print actions
+        #print actions
 
         for evt in actions:
-            print "jeu_actif d = " + str(jeu_actif)
+            #print "jeu_actif d = " + str(jeu_actif)
             if evt == "quitter":
                 jeu_actif = False
             if evt == "haut":
@@ -37,7 +44,7 @@ def main():
             if evt == "droite":
                 print "droite"
                 #deplacement du joueur vers la droite
-            print "jeu_actif f = " + str(jeu_actif)
+            #print "jeu_actif f = " + str(jeu_actif)
     return
 
 class Element_Jeu(object):
@@ -49,25 +56,24 @@ class Element_Jeu(object):
 
 class Joueur(Element_Jeu):
     def __init__(self, nom, position):
-        super(Joueur,self).__init__(nom)
+        super(Joueur,self).__init__(nom, position)
         self.categorie = "Joueur"
 
 class Mur(Element_Jeu):
     def __init__(self, nom, position):
-        super(Mur,self).__init__(nom)
+        super(Mur,self).__init__(nom, position)
         self.categorie = "Mur"
 
 class Ennemi(Element_Jeu):
     def __init__(self, nom, position):
-        super(Ennemi,self).__init__(nom)
+        super(Ennemi,self).__init__(nom, position)
         self.categorie = "Mur"
 
-joueur = Joueur("The Hero", (4,3))
-ennemi = Ennemi("Predator", (8,9))
-mur1 = Mur("Mur brique", (6,9))
-mur2 = Mur("Palissade bois", (7,9))
+class Position():
+    def __init__(self):
+        self.position.x = 4
+        self.position.y = 3
 
-liste_elements = [joueur, ennemi, mur1, mur2]
 
 #   def
 #        test_element = interface.Interface_Sorties()

@@ -14,9 +14,9 @@ ecran = pygame.display.set_mode(resolution_affichage)
 loc_img = "../assets/"
 
 images = {"background":"ground.png",
-          "joueur":"player.png",
-          "mur":"wall.png",
-          "ennemi":"enemi.png" }
+          "Joueur":"player.png",
+          "Mur":"wall.png",
+          "Ennemi":"enemi.png" }
 
 
 actions_deplacements = ["gauche","droite","haut","bas","quitter"]
@@ -45,53 +45,48 @@ class Interface_Entrees(object):
 
 class Interface_Sorties(object):
     def __init__(self):
+        # Liste des éléments à afficher: (image_source, (posy,posx))
+        self.a_afficher = []
+        self.ref_img = {}
         self.preparer_background()
 
-        self.afficher_elements()
+        self.actualiser_affichage()
         return
 
     def preparer_background(self):
         self.image_fond = pygame.image.load(loc_img + images["background"])
-        self.image_fond.convert()
+        self.image_fond = self.image_fond.convert()
+        self.a_afficher.append((self.image_fond, (0,0)))
 
 
 # Qu'a besoin le moteur ?
 # Qu'a besoin l'interface ?
     # la désigation de l'élément pour savoir quelle image afficher.
-        # ---> element : dictionnaire ?                                elements = {"joueur":(0,0) , "ennemi":(5,7), "mur": [(4,4), (6,9)]}
+        # ---> element : dictionnaire ?             elements = {"joueur":(0,0) , "ennemi":(5,7), "mur": [(4,4), (6,9)]}
         # elements = [ Joueur("Joueur", (4,7)), Ennemi("Ennemi", (5,7)),
     # les coordonnées de l'élément pour pouvoir l'afficher.
 
-    def receptionner_element(self, elements):
+    def preparer_affichage(self, elements):
         print "à quoi est-ce que je ressemble ?"
 
+        print elements
         for elem in elements:
-           img_elem = pygame.image.load(loc_img + images[elem.key()])
-           images
+            print elem.categorie + "  Nom=" +elem.nom
+            if not self.ref_img.has_key(elem.categorie):
+                img_elem = pygame.image.load(loc_img + images[elem.categorie])
+                img_elem = img_elem.convert()
+                self.ref_img[elem.categorie] = img_elem
+            if elem.categorie == "Joueur":
+                self.a_afficher.append((img_elem, (120,200)))
 
-        if (element["joueur"] == "joueur"):
-            self.player = pygame.image.load(loc_img + images["joueur"])
-            self.player.convert()
-        if (element[0] == "mur"):
-            self.wall = pygame.image.load(loc_img + images["mur"])
-            self.player.convert()
-        if (element[0] == "ennemi"):
-            self.enemi = pygame.image.load(loc_img + images["ennemi"])
-            self.enemi.convert()
-
-
-    def positionner_elements(self):
-        print "cet élement va à cet position"
-
-
-
-    def preparer_affichage(self):
-        print "préparation à l'affichage des éléments"
-
-    def afficher_elements(self):
+    def actualiser_affichage(self):
         print "afficher et réafficher les éléments"
-        ecran.blit(self.image_fond, (0,0))
+        #ecran.blit(self.image_fond, (0,0))
+        for (image, position) in self.a_afficher:
+            print "Affichage de " + str(image) + "à " + str(position)
+            ecran.blit(image, position)
         pygame.display.flip()
+        self.a_afficher = []
         print "vient là"
 
 # 1ère approche n'allant pas avec les autres modules :
