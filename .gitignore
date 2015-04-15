@@ -1,4 +1,11 @@
 # ignorer les fichiers de sauvegarde
 *~
+
 # ignore les fichiers python précompilés
 *pyc
+
+#ignorer le dossier projet de pycharm
+.idea/
+
+#ignorer les paramètre de dolphin
+.directory

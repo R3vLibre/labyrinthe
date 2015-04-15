@@ -2,8 +2,7 @@
 #demande les entrees qui ont été maintenues
 import time
 
-import laby_interface_entrees as i_e
-import laby_interface_sorties as i_s
+import laby_interface_entrees as i_f
 import laby_elements_jeu
 import laby_monde
 
@@ -27,6 +26,6 @@ class Moteur(object):
 
         if act == "quitter":
           self.jeu_actif = False
-        elif act in i_e.actions_deplacements:
+        elif act in i_f.actions_deplacements:
           print(act)
           self.monde.heros.deplacer(act)
