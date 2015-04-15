@@ -2,12 +2,9 @@
 #demande les entrees qui ont été maintenues
 import time
 
-import laby_interface_entrees as i_f
+import laby_interface as i_f
 import laby_elements_jeu
 import laby_monde
-
-print laby_monde.map_initiale
-
 
 class Moteur(object):
   def __init__(self, entrees):

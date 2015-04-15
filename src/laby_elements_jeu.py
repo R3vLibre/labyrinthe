@@ -26,3 +26,9 @@ class Heros(Element_Jeu):
       self.y = self.y-1
     if direction == "bas":
       self.y = self.y+1
+
+class Mur(Element_Jeu):
+  def __init__(self,curMap,posTabX,posTabY):
+    super(Mur,self).__init__(curMap,posTabX,posTabY)
+    return
+    
