@@ -9,13 +9,13 @@ resolution_affichage = (800, 600)
 pygame.init()
 ecran = pygame.display.set_mode(resolution_affichage)
 
-#background :
+#les images :
 
 loc_img = "../assets/"
 
 images = {"background":"ground.png",
-          "joueur":"imagedujoueur.png",
-          "mur":"imagedemur.png",
+          "joueur":"player.png",
+          "mur":"wall.png",
           "ennemi":"ennemi.png" }
 
 
@@ -45,10 +45,34 @@ class Interface_Entrees(object):
 
 class Interface_Sorties(object):
     def __init__(self):
+
         image_fond = pygame.image.load(loc_img + images["background"])
         image_fond.convert()
 
+# 1ère approche n'allant pas avec les autres modules :
+
+# l'interface de sortie prépare le background.
+# l'interface de sortie récupère les coordonnées de l'ensemble des cases.
+# l'interface de sortie "transforme" les coordonnées en équivalent pixel.
+# l'interface de sortie attend l'envoie des coordonnées joueur, ennemi et mur d'élément de jeu.
+# l'interface de sortie positionne les éléments.
+#   les éléments de jeu ne connaissent pas leurs images ni leur taille dans le monde.
+# l'interface de sortie n'a besoin de connaitre que le nom (sorte d'id) des objets à afficher.
+# l'interface de sortie déplace le(s) objet(s)
+
+#2ème approche ou l'interface essst plus pacif car c'est le moteur qui l'active.
+# c'est le moteur qui agit :
+        # initialisation de l'interface de sortie par le moteur.
+        # interaction avec le moteur :
+            # afficher_background()
+            # récupérer_coordonnées_monde()
+            # transformer_coordonnées_monde()
+            # réceptionner_coordonnées_éléments() <- utilisation de flags ?
+            # positionner_éléments()
+            # afficher_éléments()
+            # déplacer_éléments()
+            # réafficher_éléments()
+
+
         ecran.blit(image_fond, (0,0))
-
-
         pygame.display.flip()

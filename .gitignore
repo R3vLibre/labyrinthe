@@ -2,3 +2,5 @@
 *~
 #ignorer le dossier projet de pycharm
 .idea/
+#ignorer les paramètre de dolphin
+.directory

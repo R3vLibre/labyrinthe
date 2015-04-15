@@ -4,7 +4,7 @@
 
 import sys, os
 print sys.path[0]
-sys.path.append(os.path.join(sys.path[0], "../src/"))
+sys.path.append(os.path.join(sys.path[0], "../../src/"))
 print sys.path
 import laby_interface as interface
 import pygame.locals as locals
