@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Module de test
+
 import laby_elements_jeu
 
 # resolution de 800*600
@@ -11,8 +13,8 @@ import laby_elements_jeu
 
 class Monde():
   def __init__(self):
-    self.heros = laby_elements_jeu.Heros(0,11,11)
-    
+    self.heros = laby_elements_jeu.HerosTest(0,11,11)
+
 
 map_initiale =\
 [

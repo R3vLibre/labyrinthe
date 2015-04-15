@@ -19,7 +19,7 @@ images = {"background":"ground.png",
           "ennemi":"enemi.png" }
 
 
-#liste_actions = ["gauche","droite","haut","bas","quitter"]
+actions_deplacements = ["gauche","droite","haut","bas","quitter"]
 
 class Interface_Entrees(object):
     def __init__(self):
